@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Laravel</title>
+@extends('layouts.app')
+
+
+
+@section('content')
+
+	<h1>Contact Page</h1>
+	
+	@if (count($people))
 		
-	</head>
-	<body>
-		<div class="container">
-			<h1>Contact Page</h1>
-		</div>
-	</body>
-</html>
-		
+	<ul>
+	@foreach($people as $person)
+	
+		<li>{{$person}}</li>
+	
+@stop
+
+@section('footer')
+	<script>alert("Hello Visitor")</script>
+	
+@stop
