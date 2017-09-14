@@ -133,6 +133,9 @@ Eloquent Relationships
 Route::get('User/{id}/Post', function($id){
 	return User::find($id)->Post->title;
 });
+Route::get('Post/{id}/User', function($id){
+	return Post::find($id)->User->name;
+});
 	
 	
 	
