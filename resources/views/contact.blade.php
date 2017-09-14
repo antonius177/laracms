@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 
 
@@ -12,10 +12,11 @@
 	@foreach($people as $person)
 	
 		<li>{{$person}}</li>
-	
-@stop
+		@endforeach
+		@endif
+@endsection
 
 @section('footer')
 	<script>alert("Hello Visitor")</script>
 	
-@stop
+@endsection

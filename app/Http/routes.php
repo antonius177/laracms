@@ -24,9 +24,9 @@
 //Route::get('/about', function () {
  //   return "Hi about page.";
 //});
-//Route::get('/contact', function () {
- //   return "Hi, I am contact.";
-//});
+
+Route::get('/contact','PostsController@contact');
+
 //Route::get('/post/{id}', function ($id) {
  //   return "This is post number. " .$id;
 //});
@@ -56,3 +56,20 @@ Route::get('/insert', function(){
 	DB::insert("INSERT INTO posts(title, content) values(?,?)",
 	['PHP with Laravel', 'Laravel is the Best Thing that happen to PHP']);
 	});
+
+Route::get('/read', function(){
+		$results = DB::select("SELECT * FROM  posts WHARE id = ?",[1]);
+		//foreach($results as $post){
+			//return $post->title;
+		//}
+		return $results;
+});
+	
+	
+	
+//Route::get('/read', function(){
+	//$results = DB::select("SELECT * FROM posts WHARE id = ?",[1]);
+	//foreach($results as $post){
+		//return $post->title;
+	//}
+//});
