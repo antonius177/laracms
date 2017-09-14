@@ -114,7 +114,10 @@ Route::get('/readsoftdelete', function(){
 	$Post = Post::onlyTrashed()->get();
 	return $Post;
 });
-	
+
+Route::get('/restore', function(){
+	Post::withTrashed()->where('id',20)->restore();
+});
 	
 	
 	
