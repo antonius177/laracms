@@ -78,6 +78,15 @@ Route::get('/basicinsert', function(){
 Route::get('/create', function(){
 	Post::create(['title' => 'create method', 'content' => 'saya belajar banyak hari ini']);
 });
+
+Route::get('/basicupdate', function(){
+	$Post = Post::find(17);
+	
+	$Post->title = 'updated Eloquent title';
+	$Post->content = 'Updated Eloquent content';
+	
+	$Post->save();
+});
 	
 	
 	
