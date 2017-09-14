@@ -95,6 +95,13 @@ Route::get('/delete', function(){
 	$Post = Post::find(17);
 	$Post->delete();
 });
+Route::get('/delete2', function(){
+	Post::destroy(18,17);
+});
+Route::get('/delete3', function(){
+	Post::where('is_admin', 0)->delete();
+});
+	
 	
 	
 	
