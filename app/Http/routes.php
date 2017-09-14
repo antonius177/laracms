@@ -58,18 +58,15 @@ Route::get('/insert', function(){
 	});
 
 Route::get('/read', function(){
-		$results = DB::select("SELECT * FROM  posts WHARE id = ?",[1]);
+		$results = DB::select("SELECT * FROM  posts WHERE id = ?",[1]);
 		//foreach($results as $post){
 			//return $post->title;
 		//}
 		return $results;
 });
+Route::get('/update', function(){
+		$update = DB::update("UPDATE posts SET title = 'update title' WHERE id =?",[1]);
+		return $update;
+	});
 	
 	
-	
-//Route::get('/read', function(){
-	//$results = DB::select("SELECT * FROM posts WHARE id = ?",[1]);
-	//foreach($results as $post){
-		//return $post->title;
-	//}
-//});
