@@ -39,6 +39,20 @@
 //}));
 //Route::get('/post/{id}', 'PostsController@index');
 
-Route::resource('posts','PostsController');
-Route::get('/contact', 'PostsController@contact');
-Route::get('post/{id}/{name}/{password}', 'PostsController@show_post');
+//Route::resource('posts','PostsController');
+//Route::get('/contact', 'PostsController@contact');
+//Route::get('post/{id}/{name}/{password}', 'PostsController@show_post');
+
+Route::get('/', function(){
+	return view('Welcome');
+	});
+
+/*
+-----------------------------------------------------
+DATABASE raw SQL Queries
+-----------------------------------------------------
+*/
+Route::get('/insert', function(){
+	DB::insert("INSERT INTO posts(title, content) values(?,?)",
+	['PHP with Laravel', 'Laravel is the Best Thing that happen to PHP']);
+	});
