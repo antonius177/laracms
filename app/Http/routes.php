@@ -104,6 +104,16 @@ Route::get('/delete3', function(){
 Route::get('/softdelete', function(){
 	Post::find(20)->delete();
 });
+Route::get('/readsoftdelete', function(){
+	//$Post = Post::find(20);
+//	return $Post;
+	//$Post = Post::withTrashed()->where('id',20)->get();
+	//return $Post;
+	//$Post = Post::withTrashed()->get();
+	//return $Post;
+	$Post = Post::onlyTrashed()->get();
+	return $Post;
+});
 	
 	
 	
