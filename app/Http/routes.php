@@ -74,6 +74,10 @@ Route::get('/basicinsert', function(){
 	$Post->save();
 	
 });
+
+Route::get('/create', function(){
+	Post::create(['title' => 'create method', 'content' => 'saya belajar banyak hari ini']);
+});
 	
 	
 	
