@@ -66,6 +66,14 @@ Route::get('/findwhere', function(){
 	return $Posts;
 	
 });
+
+Route::get('/basicinsert', function(){
+	$Post = new Post;
+	$Post->title = 'New Eloquent Title';
+	$Post->content = 'WOw Eloquent is real cool';
+	$Post->save();
+	
+});
 	
 	
 	
