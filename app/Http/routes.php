@@ -136,6 +136,14 @@ Route::get('User/{id}/Post', function($id){
 Route::get('Post/{id}/User', function($id){
 	return Post::find($id)->User->name;
 });
+
+Route::get('/Posts', function(){
+	$user = user :: find(1);
+	
+	foreach($user->posts as $post){
+		echo $post->title;
+	}
+});
 	
 	
 	
