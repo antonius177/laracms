@@ -144,7 +144,13 @@ Route::get('/Posts', function(){
 		echo $post->title;
 	}
 });
-	
+Route::get('/user/{id}/role', function ($id){
+	$user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+	return $user;
+	//foreach($user->roles as $role){
+		//return $role->name;
+	//}
+});
 	
 	
 /*
