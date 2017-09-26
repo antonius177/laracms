@@ -144,6 +144,24 @@ Route::get('/Posts', function(){
 		echo $post->title;
 	}
 });
+
+//Route::get('user/Pivot', function(){
+	//$user = User::find(1);
+	
+//	foreach($user->roles as $role){
+		//echo $role->Pivot->created_at;
+	//}
+//});
+
+Route::get('user/Pivot', function(){
+	$user = User::find(1);
+	
+	foreach($user->roles as $role){
+		echo $role->Pivot->created_at;
+		//echo $role->Pivot->created_at;
+	}
+});
+
 Route::get('/user/{id}/role', function ($id){
 	$user = User::find($id)->roles()->orderBy('id', 'desc')->get();
 	return $user;

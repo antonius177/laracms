@@ -36,6 +36,7 @@ public function posts(){
 	return $this->hasMany('App\Post');
 }
 public function roles(){
-	return $this->belongsToMany('App\Role');
+	return $this->belongsToMany('App\role')->withPivot('created_at');
+	//->withPivot('created_at');
 }
 }
