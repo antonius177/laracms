@@ -39,4 +39,7 @@ public function roles(){
 	return $this->belongsToMany('App\role')->Pivot('created_at');
 	//->withPivot('created_at');
 }
+public function photos(){
+	return $this->morphMany('App\Photo', 'imageable');
+}
 }
