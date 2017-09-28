@@ -3,6 +3,7 @@
 use App\Post;
 use App\User;
 use App\country;
+use App\photo;
 
 /*
 |--------------------------------------------------------------------------
@@ -173,6 +174,7 @@ Route::get('/user/country', function (){
 
 Route::get('/post/photos', function(){
 	$post = Post::find(1);
+	
 	foreach($post->photos as $photo){
 		return $photo->path;
 	}
@@ -184,7 +186,19 @@ Route::get('/user/photos', function(){
 	}
 });
 
+Route::get('photo/{id}/post', function($id){
+		$Photo = Photo::findOrFail($id);
+		return $Photo->imageable;
+	});
 
+Route::get('/post/tag', function (){ 
+	$Post = Post::find(1);
+	foreach($Post->tags as $Tag){
+		echo $Tag->name;
+	}
+});
+	
+	
 Route::get('/user/{id}/role', function ($id){
 	$user = User::find($id)->roles()->orderBy('id', 'desc')->get();
 	return $user;
