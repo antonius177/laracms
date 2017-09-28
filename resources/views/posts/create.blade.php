@@ -1,14 +1,16 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 
 
 @section('content')
 
-	<form action="/posts" method="Post">
-	<input type="text" name="title"/>
-	<input type="submit" name="submit" />
+	<form action="/posts" method="post">
+		<input type="text" name="title" />
+		{{csrf_field()}}
+		<input type="submit" name="submit" />
 	</form>
 	
+		
 @stop
 
 

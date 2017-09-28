@@ -247,5 +247,6 @@ DATABASE raw SQL Queries
 |---------------------------------------------------------------------------------------------
 */
 
-Route::resource('/post', 'PostsController');
+Route::resource('/posts', 'PostsController');
+//Route::resource('/Posts', 'PostsController');
 	
