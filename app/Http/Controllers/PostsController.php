@@ -65,7 +65,8 @@ class PostsController extends Controller
     public function show($id)
     {
         //
-		return "this is the method... yeayy" . $id;
+		$post = post::findOrFail($id);
+		return view('posts.show', compact('post'));
     }
 
     /**
@@ -77,6 +78,8 @@ class PostsController extends Controller
     public function edit($id)
     {
         //
+		$post = post::findOrFail($id);
+		return view('posts/edit', compact('post'));
     }
 
     /**
