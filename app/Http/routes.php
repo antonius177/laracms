@@ -4,6 +4,8 @@ use App\Post;
 use App\User;
 use App\country;
 use App\photo;
+use App\Tag;
+use App\Video;
 
 /*
 |--------------------------------------------------------------------------
@@ -197,7 +199,13 @@ Route::get('/post/tag', function (){
 		echo $Tag->name;
 	}
 });
-	
+
+Route::get('/tag/post', function(){
+	$Tag = Tag:: find(1);
+	foreach($Tag->Posts as $Post){
+		echo $Post->title;
+	}
+});
 	
 Route::get('/user/{id}/role', function ($id){
 	$user = User::find($id)->roles()->orderBy('id', 'desc')->get();
