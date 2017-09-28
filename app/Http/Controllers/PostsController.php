@@ -14,10 +14,11 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         //
-		return "hello... berhasil coy, ini post no. " .$id;
+		$posts = post::all();
+		return view('posts.index', compact('posts'));
     }
 
     /**
@@ -51,6 +52,8 @@ class PostsController extends Controller
 		//$post = new post;
 		//$post->title = $request->title;
 		//$post->save();
+		
+		return redirect('/posts');
     }
 
     /**
