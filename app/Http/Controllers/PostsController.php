@@ -44,6 +44,9 @@ class PostsController extends Controller
 		//return $request->all();
 		//return $request->get('title');
 		//return $request->title;
+			$this->validate($request,[
+			'title' => 'required',
+			]);
 		
 		//cara 1
 		post::create($request->all());
