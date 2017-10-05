@@ -274,5 +274,11 @@ Route::get('/dates', function(){
 Route::get('/getname', function(){
 	$user = User::find(1);
 	
-	return $user->name;
+	return "Mr. " . $user->name;
 });
+
+Route::get('/setname', function(){
+	$user = User::find(1);
+	$user->name="antonius wiryadinata";
+	$user->save();
+	});
