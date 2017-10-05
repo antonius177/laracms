@@ -3,6 +3,8 @@
 
 
 @section('content')
+	<!-- <form action="/posts" method="post"> -->
+	{!! Form::open() !!}
 
 	<form action="/posts" method="post">
 		<input type="text" name="title" />
