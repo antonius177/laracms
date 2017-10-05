@@ -41,7 +41,24 @@ class PostsController extends Controller
      */
     public function store(createPostRequest $request)
     {
-        //
+		$input = $request->all();
+		
+		if($file = $request->file('gambar')){
+			$name = $file->getClientOriginalName();
+			$file->move('images', $name);
+			$input['path'] = $name;
+		}
+		Post::create($input);
+		
+		//$file = $request->file('gambar');
+		
+		//echo $file->getClientOriginalName();
+		//echo"<br/>";
+		
+		//echo $file->getClientSize();
+		//echo "<br/>";
+		
+		//
 		//return $request->all();
 		//return $request->get('title');
 		//return $request->title;
@@ -50,7 +67,7 @@ class PostsController extends Controller
 			//]);
 		
 		//cara 1
-		post::create($request->all());
+		//post::create($request->all());
 		
 		//cara 2
 		//$post = new post;

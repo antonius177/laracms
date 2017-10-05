@@ -8,13 +8,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class post extends Model
 {
     //
+	public $directory = '/images/';
+	
 	use SoftDeletes;
 	
 	protected $dates = ['deleted_at'];
 	
 	protected $fillable =[
 	'title',
-	'content'
+	'content',
+	'path'
 	];
 
 public function User(){
@@ -29,6 +32,9 @@ public function tags(){
 	}
 public static function scopeLatest($query){
 	return $query->orderBy('id', 'desc')->get();
-	return $query->orderBy('id', 'desc')->get();
+	//return $query->orderBy('id', 'desc')->get();
+}
+public function getPathAttribute($value){
+	return $this->directory . $value;
 }
 }
