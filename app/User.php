@@ -42,4 +42,8 @@ public function roles(){
 public function photos(){
 	return $this->morphMany('App\Photo', 'imageable');
 }
+public function getNameAttribute($value){
+	return strtoupper($value);
+}
+
 }
