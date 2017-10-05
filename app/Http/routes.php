@@ -6,6 +6,7 @@ use App\country;
 use App\photo;
 use App\Tag;
 use App\Video;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -250,3 +251,22 @@ DATABASE raw SQL Queries
 Route::resource('/posts', 'PostsController');
 //Route::resource('/Posts', 'PostsController');
 	
+Route::get('/dates', function(){
+	$date = new DateTime('+1 week');
+	echo $date->format('m-d-y');
+	
+	echo "<br/>";
+	echo Carbon::now();
+	
+	echo "<br/>";
+	echo Carbon::now()->diffForHumans();
+	
+	echo "<br/>";
+	echo Carbon::now()->addDays(10)->diffForHumans();
+	
+	echo "<br/>";
+	echo Carbon::now()->subMonths(5)->diffForHumans();
+	
+	echo "<br/>";
+	echo Carbon::now()->yesterday()->diffForHumans();
+});
