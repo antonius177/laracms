@@ -27,4 +27,8 @@ public function photos(){
 public function tags(){
 	return $this->morphToMany('App\Tag', 'taggable');
 	}
+public static function scopeLatest($query){
+	return $query->orderBy('id', 'desc')->get();
+	return $query->orderBy('id', 'desc')->get();
+}
 }
